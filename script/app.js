@@ -10,6 +10,7 @@ App.Init = function () {
         Running: false,
     }
     App.Mods = {}
+    App.API={}
 }
 App.ExecuteCallback = function (name, data) {
     if (name) {
@@ -63,8 +64,15 @@ App.Stop = function () {
 App.Start = function () {
     App.Init()
     App.Load("core/core.js")
-
+    App.Load("info/info.js")
     App.Bind('GA','App.OnGA')
+    //启动生命周期
+    App.Raise("BeforeInit")
+    App.Raise("Init")
+    App.Raise("InitMod")
+    App.Raise("Ready")
+    App.Raise("AfterReady")
+    App.Raise("Intro")
 
 }
 App.OnGA=function(){
