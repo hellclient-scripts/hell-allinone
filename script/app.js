@@ -63,9 +63,11 @@ App.Stop = function () {
 }
 App.Start = function () {
     App.Init()
+    App.Load("param/params.js")
     App.Load("core/core.js")
     App.Load("info/info.js")
     App.Bind('GA','App.OnGA')
+    
     //启动生命周期
     App.Raise("BeforeInit")
     App.Raise("Init")

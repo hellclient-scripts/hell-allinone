@@ -16,11 +16,11 @@
         }
         return str.replace(_groupre, "、")
     }
-    App.RegisterCallback("core.send.send", function (data) {
+    App.Core.Send=function (data) {
         if (data) {
             App.Send(data)
         }
-    })
+    }
     //发送命令
     App.Send=function(str,grouped){
         if (!str){

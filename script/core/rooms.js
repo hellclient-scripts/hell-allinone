@@ -46,6 +46,7 @@
         if (App.Core.Room.WaitingGA){
             App.Core.Room.WaitingGA=false
             App.Raise('core.room.onRoomEnd')
+            App.RaiseStatusEvent('core.room.onRoomEnd')
         }
     }
     App.Bind('GA','App.Core.Room.OnGA')

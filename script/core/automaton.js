@@ -114,9 +114,6 @@
         }
         App.Automaton.Finish()
     }
-    App.RegisterCallback("core.automaton.ready",function(){
-        App.Next()        
-    })
     App.Next=function(){
         App.ChangeState("ready")        
     }
@@ -131,18 +128,17 @@
     //循环调用必须通过App.Append和App.Insert来插入state,使用Push会产生大量空Auatomaton造成内存泄漏。
     App.Append=App.Automaton.Append
     App.Insert=App.Automaton.Insert
-    
-    // App.RegisterState(new (Include("core/state/nobusy.js"))())
-    // App.Bind("Response.core.state.response","core.automaton.ready")
-    // App.ResponseReady=function(){
-    //     App.Response("core","state.response")
-    // }
-    // App.Wait=function(delay,final){
-    //     let a=App.Automaton.Push(["wait"],final).WithData("Delay",delay)
-    //     App.Next()        
-    // }
-    // App.RegisterState(new (Include("core/state/wait.js"))())
-    // App.RegisterState(new (Include("core/state/idle.js"))())
+    App.RegisterState(new (Include("state/nobusy.js"))())
+    App.Bind("Response.core.state.response","App.Next")
+    App.ResponseReady=function(){
+        App.Response("core","state.response")
+    }
+    App.Wait=function(delay,final){
+        let a=App.Automaton.Push(["wait"],final).WithData("Delay",delay)
+        App.Next()        
+    }
+    App.RegisterState(new (Include("state/wait.js"))())
+    App.RegisterState(new (Include("state/idle.js"))())
 
 
 })(App)

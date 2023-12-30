@@ -1,2 +1,6 @@
+App.Load("core/state.js")
+App.Load("core/automaton.js")
 App.Load("core/send.js")
 App.Load("core/rooms.js")
+App.Load("core/response.js")
+App.Load("core/busy.js")
