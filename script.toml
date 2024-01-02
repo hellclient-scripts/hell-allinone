@@ -17,7 +17,6 @@ OnBufferMin = 0
 OnBufferMax = 0
 Channel = ""
 Timers = []
-Aliases = []
 
 [[Triggers]]
   ID = "d1f98164pfr1go7151pg53"
@@ -112,12 +111,35 @@ Aliases = []
   Italic = false
   Variable = ""
 
+[[Aliases]]
+  ID = "d1f9jvfuta01jm72drnfp3"
+  Name = "App.Core.Connect.OnAliasLogin"
+  Enabled = true
+  Match = "#login$"
+  Send = ""
+  Script = "App.Core.Connect.OnAliasLogin"
+  SendTo = 0
+  Sequence = 100
+  ExpandVariables = false
+  Temporary = false
+  OneShot = false
+  Regexp = true
+  Group = ""
+  IgnoreCase = false
+  KeepEvaluating = true
+  Menu = false
+  OmitFromLog = false
+  Variable = ""
+  ReverseSpeedwalk = false
+  OmitFromOutput = false
+  OmitFromCommandHistory = false
+
 [[RequiredParams]]
   Name = "id"
   Desc = "用户ID"
   Intro = ""
 
 [[RequiredParams]]
-  Name = "passwd"
+  Name = "password"
   Desc = "密码"
-  Intro = "用户密码"
+  Intro = "用户登陆密码"
