@@ -2,7 +2,8 @@
     world.Note("加载系统参数");
     App.Params={
         "tick":"650",
-        "cmdlimit":"45",
+        "cmdinterval":"50",
+        "cmdlimit":"15",
         "echo":"t",
     }
     App.InitParam=function(name,val){

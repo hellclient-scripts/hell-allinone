@@ -111,6 +111,37 @@ Timers = []
   Italic = false
   Variable = ""
 
+[[Triggers]]
+  ID = "d1f9ohdik3tn4f714ehvkf"
+  Name = "App.Core.OnResponse"
+  Enabled = true
+  Match = "^设定环境变数：no_more = \"([^-]+)\\-([^=]+)(=(.*)){0,1}\"$"
+  Send = ""
+  ColourChangeType = 0
+  Colour = 0
+  Wildcard = 0
+  SoundFileName = ""
+  SoundIfInactive = false
+  Script = "App.Core.OnResponse"
+  SendTo = 0
+  Sequence = 100
+  ExpandVariables = false
+  Temporary = false
+  OneShot = false
+  Regexp = true
+  Repeat = false
+  MultiLine = false
+  LinesToMatch = 0
+  WildcardLowerCase = false
+  Group = ""
+  IgnoreCase = false
+  KeepEvaluating = true
+  OmitFromLog = false
+  OmitFromOutput = false
+  Inverse = false
+  Italic = false
+  Variable = ""
+
 [[Aliases]]
   ID = "d1f9jvfuta01jm72drnfp3"
   Name = "App.Core.Connect.OnAliasLogin"
@@ -127,6 +158,29 @@ Timers = []
   Group = ""
   IgnoreCase = false
   KeepEvaluating = true
+  Menu = false
+  OmitFromLog = false
+  Variable = ""
+  ReverseSpeedwalk = false
+  OmitFromOutput = false
+  OmitFromCommandHistory = false
+
+[[Aliases]]
+  ID = "d1f9oq8ftm0dj9714eif9n"
+  Name = "App.Core.Move.OnGoto"
+  Enabled = true
+  Match = "#to (.*)$"
+  Send = ""
+  Script = "App.Core.Move.OnGoto"
+  SendTo = 0
+  Sequence = 100
+  ExpandVariables = false
+  Temporary = false
+  OneShot = false
+  Regexp = true
+  Group = ""
+  IgnoreCase = false
+  KeepEvaluating = false
   Menu = false
   OmitFromLog = false
   Variable = ""

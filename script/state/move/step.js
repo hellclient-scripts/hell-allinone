@@ -8,8 +8,14 @@
     State.prototype.OnEvent=function(context,event,data){
         switch(event){
             case "core.room.onRoomEnd":
+                let move=App.GetContext("Move")
+                move.OnArrive()
                 break
             case "move.retry":
+                world.DoAfterSpecial(1, 'App.RaiseStateEvent("move.retrymove")', 12);
+                break
+            case "move.retrymove":                
+                this.Try();
                 break
             case "move.wrongway":
                 // if (App.Vehicle&&App.Vehicle.OnWrongway){
@@ -34,7 +40,16 @@
         DeleteTemporaryTimers()
     }
     State.prototype.Enter=function(context,oldstatue){
-        basicstate.prototype.Enter.call(this,context,oldstatue)
+        this.Try()
+    }
+    State.prototype.Try=function(){
+        let move=App.GetContext("Move")
+        let cmd=move.CurrentStep()
+        if (cmd==null){
+            move.OnFinish()
+            return
+        }
+        App.Send(cmd.Command)
     }
     return State
 })(App)

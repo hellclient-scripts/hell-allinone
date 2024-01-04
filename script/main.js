@@ -1,6 +1,6 @@
 "use strict";
 Note('加载Hell-allinone机器人')
-var DebugLevel=1
+var DebugLevel=0
 
 var onOpen=function (){
 

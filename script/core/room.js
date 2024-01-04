@@ -57,6 +57,8 @@
             App.Core.Room.Current.MergeObject(obj)
         }
     }
+
+
     //Debug时用于打印当前房间内容
     App.DumpRoom=App.Core.Room.Dump
 })(App)

@@ -1,20 +1,21 @@
-(function(app){
-    app.Core.OnResponse=function(name, output, wildcards){
+(function(App){
+    //^设定环境变数：no_more = "([^-]+)\-([^=]+)(=(.*)){0,1}"$
+    App.Core.OnResponse=function(name, output, wildcards){
         let type=wildcards[0]
         let cmd=wildcards[1]
         let data=wildcards[3]
         if (cmd){
-            app.Raise("Response."+type+"."+cmd,data)
+            App.Raise("Response."+type+"."+cmd,data)
         }
     }
-    app.ResponseCmd=function(type,name,value){
+    App.ResponseCmd=function(type,name,value){
         let cmd="set no_more "+type + "-"+name
         if (value){
             cmd=cmd+"=" +value
         }
         return cmd
     }
-    app.Response=function(type,name,value){
-        app.Send(app.ResponseCmd(type,name,value))
+    App.Response=function(type,name,value){
+        App.Send(App.ResponseCmd(type,name,value))
     }
 })(App)

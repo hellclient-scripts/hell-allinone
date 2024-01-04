@@ -4,6 +4,7 @@
     //目标接口
     let Goal=function(target){
         this.Found=false
+        this.NeedLook=false
         this.Target=target
     }
     //必须继承，

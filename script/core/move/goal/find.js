@@ -11,7 +11,7 @@
             move.OnFinish()
             return
         }
-        move.DoStep()
+        move.Next()
     }
     return Find
 })()

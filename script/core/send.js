@@ -4,10 +4,10 @@
     var _linesre = new RegExp("[^;\n]+", "g");
     var _groupre=new RegExp("[;\n]", "g");
     var _cmdsre = re=/(?:、|·|。)/
-    App.Commands={}
+    App.Aliases={}
     //注册回调为命令
-    App.RegisterCommand=function(name,callback){
-        App.Commands[name]=callback
+    App.RegisterAlias=function(name,callback){
+        App.Aliases[name]=callback
     }
     //将命令转换为命令组形式
     App.GroupCmds=function(str){

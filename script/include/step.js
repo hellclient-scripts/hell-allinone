@@ -10,7 +10,7 @@
         
     }
     Step.prototype.SetTarget=function(target){
-        this.Target=target?target:""
+        this.Target=(target!==null&&target!=='')?target:""
     }
     return Step
 })()
