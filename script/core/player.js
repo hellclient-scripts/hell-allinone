@@ -79,6 +79,7 @@
     //^(你目前并没有学会任何技能。|你目前所学到的所有技能)$
     App.Core.Player.OnSkillsStart=function(name, output, wildcards){
         App.Core.Player.InitSkills()
+        App.Core.Cooldown.Update('core.skills')
     }
     //^├\S+项(基本功夫|知识技能|其它技能)─*┼─*┼─*┼─*┤$
     App.Core.Player.OnSkillType=function(name, output, wildcards){
