@@ -1,6 +1,6 @@
 (function (App) {
 
-    App.Core.InitCmd = 'set brief;'
+    App.Core.InitCmd = 'set brief;i;hp;score;cha'
     App.Core.Init = function () {
         App.Send(App.Core.InitCmd)
         App.Response("core", "init")

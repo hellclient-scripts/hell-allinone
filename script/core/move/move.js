@@ -9,6 +9,7 @@
         this.StateMove='move.move'
     }
     Move.prototype.Start=function(){
+        this.Navigator.Init(this)
         App.Push([this.StateMove]).WithData('Move',this)
         App.Next();
     }
@@ -19,16 +20,19 @@
         if ((this.Goal.NeedLook||this.Navigator.NeedLook)&&!this.Looked){
             this.Looked=true;
             App.Raise('core.move.arrive',null)
-            if (this.Navigator.ArrivedOrLooked()){
+            if (this.Navigator.ArrivedOrLooked(this)){
                 App.Fail()
+                return
             }
         }else{
             App.Raise('core.move.arrive',this.Navigator.Current())
-            if (this.Navigator.ArrivedOrLooked()){
+            if (this.Navigator.ArrivedOrLooked(this)){
                 App.Fail()
+                return
             }
-            if (this.Navigator.Arrived()){
+            if (this.Navigator.Arrived(this)){
                 App.Fail()
+                return
             }
         }
         this.Goal.OnArrive(this)

@@ -80,12 +80,19 @@ App.Start = function () {
 App.OnGA=function(){
     App.CurrentBlock=[]
 }
+//当游戏有新的信息进入时触发。
+//触发的优先级是50,比标准触发的100优先要早。
 App.Online=function(name, output, wildcards){
     App.CurrentLine={
         Plain:output,
         Raw:JSON.parse(DumpOutput(1))[0]
     }
     App.Raise('line',App.CurrentLine)
+}
+//标准触发结束后的触发。
+//触发的优先级是999,比标准触发的100优先要晚。
+App.OnAfterline=function(name, output, wildcards){
+    App.Raise('afterline',App.CurrentLine)
 }
 App.Load = function (name) {
     Include(name)

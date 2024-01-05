@@ -1,23 +1,22 @@
-(function(app){
-app.Data.Busy={}
-app.Core.OnBusyEnd=function(name, output, wildcards){
-    world.EnableTriggerGroup("busy",false)
-    world.EnableTimer("busy_retry",false)
-    if (app.Data.Busy.Callback){
-        app.ExecuteCallback(app.Data.Busy.Callback,app.Data.Busy.Data)
+(function(App){
+App.Data.Busy={}
+world.EnableTimer("App.Core.OnBusyRetry",false)
+App.Core.OnBusyEnd=function(name, output, wildcards){
+    world.EnableTimer("App.Core.OnBusyRetry",false)
+    if (App.Data.Busy.Callback){
+        App.ExecuteCallback(app.Data.Busy.Callback,app.Data.Busy.Data)
     }
 }
-app.Core.OnBusyRetry=function(name){
-    app.Send("tuna")
+App.Core.OnBusyRetry=function(name){
+    app.Send("bai")
 }
-app.CheckBusy=function(callback,data){
-    world.EnableTriggerGroup("busy",true)
-    world.EnableTimer("busy_retry",true)
-    world.ResetTimer("busy_retry")
+App.CheckBusy=function(callback,data){
+    world.EnableTimer("App.Core.OnBusyRetry",true)
+    world.ResetTimer("App.Core.OnBusyRetry")
     app.Data.Busy={
         Callback:callback,
         Data:data,
     }
-    app.Send("tuna")
+    app.Send("bai")
 }
 })(App)

@@ -9,7 +9,7 @@
         return this.Path.First()
     }
     //必须继承，当前移动成功后的确认指令
-    PathNavigator.prototype.Arrived=function(){
+    PathNavigator.prototype.Arrived=function(move){
         this.Path.Shift()
     }
 

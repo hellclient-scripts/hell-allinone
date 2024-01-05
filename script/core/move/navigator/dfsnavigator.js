@@ -13,7 +13,7 @@
     DfsNavigator.prototype.Current=function(){
         return this.CurrentStep
     }
-    DfsNavigator.prototype.ArrivedOrLooked=function(){
+    DfsNavigator.prototype.ArrivedOrLooked=function(move){
         let exits=App.Core.Room.Current.Exits
         let level=this.DFS.Arrive(exits)
         let next=level.Next()
