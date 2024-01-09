@@ -6,6 +6,8 @@ App.Load("core/command.js")
 App.Load("core/send.js")
 App.Load("core/check.js")
 App.Load("core/busy.js")
+App.Load("core/item.js")
+
 App.Load("core/proposal.js")
 
 App.Load("core/player.js")

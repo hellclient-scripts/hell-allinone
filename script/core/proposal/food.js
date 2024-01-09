@@ -1,13 +1,13 @@
 (function (App) {
     let proposal=Include("core/proposal/proposal.js")
-    let Cash= function(){
-        proposal.call(this,"cash")
+    let Food= function(){
+        proposal.call(this,"food")
         this.Submit=function(context){
-            let goldmin=App.Core.Inv.Settings.gold_min
-            if (context['gold_min']){
-                goldmin=goldmin>context['gold_min']?goldmin:context['gold_min']
+            let food_min=App.Core.Inv.Settings.food_min
+            if (context['food_min']){
+                food_min=food_min>context['food_min']?food_min:context['food_min']
             }
-            return App.Core.Inv.Items.Money<goldmin
+            return App.GetItemNumber('shui dai',true)<food_min
         }
         this.Execute=function(context){
             let goldmin=App.Core.Inv.Settings.gold_min
@@ -27,5 +27,5 @@
             App.Next()
         }
     }
-    App.RegisterProposal(new Cash())
+    App.RegisterProposal(new Food())
 })(App)
