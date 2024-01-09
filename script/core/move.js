@@ -5,7 +5,7 @@
     let Walk=Include('core/move/goal/walk.js')
     let Locate=Include('core/move/goal/locate.js')
     let Path=Include('include/path.js')
-    
+    let MoveOption=Include('include/option/move.js')
     App.Core.Move={}
     App.Core.Move.ParsePath=function(path){
         return new Path(path.split(';'));
@@ -18,7 +18,10 @@
         let move=new Move(new DfsNavigator(10),new Locate)
         return move
     }
-    App.Core.Move.Move=function(targets,fly){
+    App.Core.Move.NewMove=function(targets,fly){
+        return new MoveOption(targets,fly)
+    }
+    App.Core.Move.Move=function(moveoption){
         let cmds=[]
         if (App.Core.Room.Current.ID<0){
             cmds.push(App.NewCommand('locate'))
@@ -29,7 +32,7 @@
                 App.Fail()
                 return
             }
-            let path=App.API.GetPath(App.Core.Room.Current.ID,targets,fly)
+            let path=App.API.GetPath(App.Core.Room.Current.ID,moveoption.Targets,moveoption.Fly)
             if (path==null){
                 Note('失败：无法获取 '+App.Core.Room.Current.ID+' 到 '+targets.join(',')+' 的路径。')
                 App.Fail()
@@ -59,7 +62,7 @@
 
 
     App.Core.Move.OnGoto=function (name, line, wildcards) {
-        App.Core.Move.Move(wildcards[0].split(','),true)
+        App.Core.Move.Move(App.Core.Move.NewMove(wildcards[0].split(','),true))
     }
 
     App.RegisterState(new (Include("state/move/move.js"))())

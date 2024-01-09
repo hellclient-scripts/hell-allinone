@@ -184,4 +184,5 @@
         return result
     }
     App.API.GetPath=App.Info.Mapper.GetPath
-    App.Bind("Ready", "App.Info.Mapper.Load")})(App)
+    App.Bind("Ready", "App.Info.Mapper.Load")
+})(App)
