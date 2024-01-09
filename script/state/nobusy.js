@@ -8,10 +8,6 @@
     State.prototype = Object.create(basicstate.prototype)
     State.prototype.OnEvent = function (context, event, data) {
         switch (event) {
-            case "busy":
-                world.ResetTimer("busy_retry")
-                world.DoAfterSpecial(1, 'App.Core.CheckBusy()', 12);
-                break
             case "nobusy":
                 App.Next()
                 break
@@ -21,11 +17,7 @@
         basicstate.prototype.Enter.call(this, context, oldstatue)
         world.ResetTimer("busy_retry")
         world.EnableTimer("busy_retry", true)
-        if (App.GetContext("WaitOK")) {
-            App.Core.CheckBusyWaitOK()
-        } else {
-            App.Core.CheckBusy()
-        }
+        App.Core.CheckBusy()
     }
     State.prototype.Leave = function (context, oldstatue) {
         world.EnableTimer("busy_retry", false)

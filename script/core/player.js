@@ -99,5 +99,7 @@
         }
         App.Data.Skills[skill.ID]=skill
     }
+    App.Core.Check.RegisterSend('core.hp',5000,['hp'])
+    App.Core.Check.RegisterSend('core.hp',60000,['cha'])
 
 })(App)

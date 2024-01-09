@@ -545,6 +545,37 @@ Channel = ""
   Variable = ""
 
 [[Triggers]]
+  ID = "d1fa325tbnstqq6qr8h2k"
+  Name = "App.Core.OnBusyEnd"
+  Enabled = true
+  Match = "^指令格式：apprentice \\| bai \\[cancel\\]\\|<对象>$"
+  Send = ""
+  ColourChangeType = 0
+  Colour = 0
+  Wildcard = 0
+  SoundFileName = ""
+  SoundIfInactive = false
+  Script = "App.Core.OnBusyEnd"
+  SendTo = 0
+  Sequence = 100
+  ExpandVariables = false
+  Temporary = false
+  OneShot = false
+  Regexp = true
+  Repeat = false
+  MultiLine = false
+  LinesToMatch = 0
+  WildcardLowerCase = false
+  Group = ""
+  IgnoreCase = false
+  KeepEvaluating = true
+  OmitFromLog = false
+  OmitFromOutput = false
+  Inverse = false
+  Italic = false
+  Variable = ""
+
+[[Triggers]]
   ID = "d1f9rdj4m9i6pv714ejlvu"
   Name = "App.OnAfterline"
   Enabled = true
@@ -649,3 +680,13 @@ Channel = ""
   Name = "password"
   Desc = "密码"
   Intro = "用户登陆密码"
+
+[[RequiredParams]]
+  Name = "inv"
+  Desc = "道具设置"
+  Intro = ""
+
+[[RequiredParams]]
+  Name = "repair"
+  Desc = "修理设置"
+  Intro = ""

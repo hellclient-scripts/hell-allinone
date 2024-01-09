@@ -203,3 +203,8 @@ var FormatNumber=function(data){
     }
     return result
 }
+
+var ToNumber=function(data,defaultvalue){
+    let num=data-0
+    return isNaN(num)?defaultvalue:num
+}
