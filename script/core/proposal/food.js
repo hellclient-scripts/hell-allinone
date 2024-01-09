@@ -7,24 +7,10 @@
             if (context['food_min']){
                 food_min=food_min>context['food_min']?food_min:context['food_min']
             }
-            return App.GetItemNumber('shui dai',true)<food_min
+            return App.Core.Inv.Items.Food<food_min
         }
         this.Execute=function(context){
-            let goldmin=App.Core.Inv.Settings.gold_min
-            if (context['gold_min']){
-                goldmin=goldmin>context['gold_min']?goldmin:context['gold_min']
-            }
-
-            let cmd="qu "+goldmin+" gold;i"
-
-            App.Commands([
-                App.NewCommand("to",App.Core.Move.NewMove([App.Info.Rooms.Bank])),
-                App.NewCommand("nobusy"),
-                App.NewCommand("do",cmd),
-                App.NewCommand("delay",1),
-                App.NewCommand("nobusy"),
-            ]).Push()
-            App.Next()
+            App.Core.Item.Buy(App.Core.Item.Food.Key)
         }
     }
     App.RegisterProposal(new Food())

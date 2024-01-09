@@ -52,8 +52,8 @@
                     }
                     //切分命令，#之后第一个空格之前的为指令，第一个空格后的为数据
                     let directive=new Directive(cmd.substr(1))
-                    if (App.Commands[directive.Command]){
-                        App.Callbacks[App.Commands[directive.Command]](directive.Data)
+                    if (App.Aliases[directive.Command]){
+                        App.ExecuteCallback(App.Aliases[directive.Command],directive.Data)
                         continue
                     }
                     //未注册命令，检测是否为#20 xxx格式

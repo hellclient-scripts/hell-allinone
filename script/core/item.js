@@ -3,6 +3,7 @@
     App.Core.Item.Food = { Name: "Gan liang", ID: "gan liang", Key: "gan liang" }
     App.Core.Item.Water = { Name: "shui dai", ID: "shui dai", Key: "shui dai" }
     App.Eat = function () {
+        App.Core.Cooldown.Update('core.eat')
         App.Send('eat ' + App.Core.Item.Food.ID)
         App.Send('drink ' + App.Core.Item.Water.ID)
     }
@@ -44,4 +45,7 @@
         App.Commands(cmds).Push()
         App.Next()
     }
+    App.RegisterAlias("eat",'App.Eat')
+    App.Core.Check.RegisterSend('core.eat',10000,['#eat'])
+
 })(App)

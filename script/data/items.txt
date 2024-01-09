@@ -1,3 +1,3 @@
 //id::type::gold::location::data
 gan liang::buy::1::27::buy 5 gan liang
-shui dai::buy::1::27::buy 2 shui dai
+shui dai::buy::1::27::buy shui dai;buy shui dai

@@ -86,13 +86,12 @@
     }
     App.Core.Proposal.Prepare = function () {
         App.Core.Proposal.Push(App.Core.Proposal.New(['prepare']))
-        App.Next()
     }
     Include("core/proposal/cash.js")
     Include("core/proposal/cun.js")
+    Include("core/proposal/food.js")
+    Include("core/proposal/water.js")
 
-    // Include("core/proposal/food.js")
-    // Include("core/proposal/drink.js")
     // Include("core/proposal/items.js")
     // Include("core/proposal/neili.js")
     // Include("core/proposal/heal.js")
