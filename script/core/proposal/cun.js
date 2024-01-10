@@ -26,12 +26,10 @@
             ]
             if (cash){
                 cmds.push(App.NewCommand("do",'cun '+cash +' cash'))
-                cmds.push(App.NewCommand("delay",1))
                 cmds.push(App.NewCommand("nobusy"))
             }
             if (gold){
                 cmds.push(App.NewCommand("do",'cun '+gold +' gold'))
-                cmds.push(App.NewCommand("delay",1))
                 cmds.push(App.NewCommand("nobusy"))
             }
             cmds.push(App.NewCommand('do','i'))

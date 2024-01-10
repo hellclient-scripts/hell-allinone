@@ -21,12 +21,10 @@
             if (cash) {
                 cmds.push(App.NewCommand("do", "qu " + cash + " cash"))
                 cmds.push(App.NewCommand("nobusy"))
-                cmds.push(App.NewCommand("delay", 1))
             }
             if (diff > (cash * 10)) {
                 cmds.push(App.NewCommand("do", "qu " + (diff - (cash * 10)) + " gold"))
                 cmds.push(App.NewCommand("nobusy"))
-                cmds.push(App.NewCommand("delay", 1))
             }
         }
         switch (item.Type) {
@@ -36,7 +34,6 @@
                 cmds.push(App.NewCommand("do", item.Data))
                 cmds.push(App.NewCommand("do", "i"))
                 cmds.push(App.NewCommand("nobusy"))
-                cmds.push(App.NewCommand("delay", 1))
 
                 break
             default:

@@ -21,6 +21,11 @@
             App.Core.Check.Send(cmds)
         });
     }
+    App.Core.Check.RegisterCallback=function(cdname,interval,callback){
+        App.Core.Check.Register(cdname,interval,function(){
+            App.ExecuteCallback(callback)
+        });
+    }
     App.Core.Check.Push=function(context){
         context=context||{}
         App.Core.Check.PendingSend=[]

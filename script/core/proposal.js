@@ -87,6 +87,12 @@
     App.Core.Proposal.Prepare = function () {
         App.Core.Proposal.Push(App.Core.Proposal.New(['prepare']))
     }
+
+
+    App.Core.Proposal.OnPrepare=function (name, line, wildcards) {
+        App.Core.Proposal.Prepare()
+    }
+
     Include("core/proposal/cash.js")
     Include("core/proposal/cun.js")
     Include("core/proposal/food.js")

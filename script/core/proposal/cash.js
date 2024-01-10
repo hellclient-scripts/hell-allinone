@@ -21,7 +21,6 @@
                 App.NewCommand("to",App.Core.Move.NewMove([App.Info.Rooms.Bank])),
                 App.NewCommand("nobusy"),
                 App.NewCommand("do",cmd),
-                App.NewCommand("delay",1),
                 App.NewCommand("nobusy"),
             ]).Push()
             App.Next()

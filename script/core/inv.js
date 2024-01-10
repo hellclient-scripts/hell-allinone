@@ -1,7 +1,7 @@
 (function (App) {
     const DefaultFoodMin = 10
     const DefaultFoodMax = 50
-    const DefaultWaterMin = 5
+    const DefaultWaterMin = 3
     const DefaultWaterMax = 10
     const DefaultGoldMin = 0
     const DefaultGoldMax = 2000
@@ -9,7 +9,6 @@
     const DefaultSilverMax = 200
     const DefaultSilverNormal = 10
     const DefaultCoinMax = 2000
-    let Action = Include("include/action.js")
     App.Core.Inv = {}
     App.Core.Inv.Items = {
         Weight: 0,
@@ -119,22 +118,8 @@
     }
     App.Core.Check.RegisterSend('core.i', 5000, ['i'])
     App.Core.Inv.Settings = {}
-    App.Core.Inv.LoadActions = function (data) {
-        let lines = data.split("\n")
-        let result = []
-        for (var i = 0; i < lines.length; i++) {
-            let line = lines[i].trim()
-            if (line) {
-                let action = new Action(line)
-                if (action.Command) {
-                    result.push(action)
-                }
-            }
-        }
-        return result
-    }
     App.Core.Inv.Load = function () {
-        let actions = App.Core.Inv.LoadActions(GetVariable('inv'))
+        let actions = App.LoadActions(GetVariable('inv'))
         App.Core.Inv.Settings = {
             'gold_min': DefaultGoldMin,
             'gold_max': DefaultGoldMax,

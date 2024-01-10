@@ -576,6 +576,37 @@ Channel = ""
   Variable = ""
 
 [[Triggers]]
+  ID = "d1fa7i570vlnqc6qr9v7s"
+  Name = "App.Core.Repair.OnDurability"
+  Enabled = true
+  Match = "^耐 久 值 : (\\d+)/(\\d+)$"
+  Send = ""
+  ColourChangeType = 0
+  Colour = 0
+  Wildcard = 0
+  SoundFileName = ""
+  SoundIfInactive = false
+  Script = "App.Core.Repair.OnDurability"
+  SendTo = 0
+  Sequence = 100
+  ExpandVariables = false
+  Temporary = false
+  OneShot = false
+  Regexp = true
+  Repeat = false
+  MultiLine = false
+  LinesToMatch = 0
+  WildcardLowerCase = false
+  Group = ""
+  IgnoreCase = false
+  KeepEvaluating = true
+  OmitFromLog = false
+  OmitFromOutput = false
+  Inverse = false
+  Italic = false
+  Variable = ""
+
+[[Triggers]]
   ID = "d1f9rdj4m9i6pv714ejlvu"
   Name = "App.OnAfterline"
   Enabled = true
@@ -664,6 +695,29 @@ Channel = ""
   Group = ""
   IgnoreCase = false
   KeepEvaluating = false
+  Menu = false
+  OmitFromLog = false
+  Variable = ""
+  ReverseSpeedwalk = false
+  OmitFromOutput = false
+  OmitFromCommandHistory = false
+
+[[Aliases]]
+  ID = "d1fa70dmg66fmj6qr9en9"
+  Name = "App.Core.Proposal.OnPrepare"
+  Enabled = true
+  Match = "^#prepare$"
+  Send = ""
+  Script = "App.Core.Proposal.OnPrepare"
+  SendTo = 0
+  Sequence = 100
+  ExpandVariables = false
+  Temporary = false
+  OneShot = false
+  Regexp = true
+  Group = ""
+  IgnoreCase = false
+  KeepEvaluating = true
   Menu = false
   OmitFromLog = false
   Variable = ""

@@ -1,3 +1,4 @@
+App.Load("core/action.js")
 App.Load("core/init.js")
 App.Load("core/state.js")
 App.Load("core/automaton.js")
@@ -7,6 +8,7 @@ App.Load("core/send.js")
 App.Load("core/check.js")
 App.Load("core/busy.js")
 App.Load("core/item.js")
+App.Load("core/repair.js")
 
 App.Load("core/proposal.js")
 
