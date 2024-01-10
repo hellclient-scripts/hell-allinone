@@ -18,7 +18,7 @@
             return (this.GetNeedRepair()!="")
         }
         this.Execute=function(context){
-            let wpid=this.GetNeedRepair()!="";
+            let wpid=this.GetNeedRepair();
             App.Core.Item.Buy(App.Core.Item.Food.Key)
         }
     }
