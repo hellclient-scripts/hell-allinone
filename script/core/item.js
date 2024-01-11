@@ -13,20 +13,7 @@
             throw '道具 ' + key + '未注册'
         }
         let cmds = []
-        if (App.Core.Inv.Items.Money < item.Gold) {
-            let diff = item.Gold - App.Core.Inv.Items.Money
-            let cash = Math.floor(diff / 10)
-            cmds.push(App.NewCommand("to", App.Core.Move.NewMove([App.Info.Rooms.Bank])))
-            cmds.push(App.NewCommand("nobusy"))
-            if (cash) {
-                cmds.push(App.NewCommand("do", "qu " + cash + " cash"))
-                cmds.push(App.NewCommand("nobusy"))
-            }
-            if (diff > (cash * 10)) {
-                cmds.push(App.NewCommand("do", "qu " + (diff - (cash * 10)) + " gold"))
-                cmds.push(App.NewCommand("nobusy"))
-            }
-        }
+        cmds.push(App.NewCommand('money',item.Gold))
         switch (item.Type) {
             case 'buy':
                 cmds.push(App.NewCommand("to", App.Core.Move.NewMove([item.Location])))

@@ -97,6 +97,7 @@
     Include("core/proposal/cun.js")
     Include("core/proposal/food.js")
     Include("core/proposal/water.js")
+    Include("core/proposal/repair.js")
 
     // Include("core/proposal/items.js")
     // Include("core/proposal/neili.js")

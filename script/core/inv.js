@@ -33,7 +33,7 @@
             Food: 0,
             Water: 0,
             Silver: 0,
-            Coin: 0,    
+            Coin: 0,
             List: [],
             Listing: false,
         }
@@ -246,5 +246,29 @@
         }
         return sum
     }
+    App.Core.PrepareMoney = function (amount) {
+        if (App.Core.Inv.Items.Money < amount) {
+            let cmds = []
+            let diff = amount - App.Core.Inv.Items.Money
+            let cash = Math.floor(diff / 10)
+            cmds.push(App.NewCommand("to", App.Core.Move.NewMove([App.Info.Rooms.Bank])))
+            cmds.push(App.NewCommand("nobusy"))
+            if (cash) {
+                cmds.push(App.NewCommand("do", "qu " + cash + " cash"))
+                if (diff == (cash * 10)) {
+                    cmds.push(App.NewCommand("do", 'i'))
+                }
+                cmds.push(App.NewCommand("nobusy"))
+
+            }
+            if (diff > (cash * 10)) {
+                cmds.push(App.NewCommand("do", "qu " + (diff - (cash * 10)) + " gold"))
+                cmds.push(App.NewCommand("do", 'i'))
+                cmds.push(App.NewCommand("nobusy"))
+            }
+            App.Commands(cmds).Push()
+        }
+        App.Next()
+    }
     App.Bind('beforeProposal', 'App.Core.Inv.Load')
-})(App)
+}) (App)
