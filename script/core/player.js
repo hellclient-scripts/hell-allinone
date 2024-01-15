@@ -1,5 +1,6 @@
 (function (App) {
-    const DefaultHealBelow = 80
+    const DefaultHealBelow = -1
+    const DefaultInspireBelow = -1
     const DefaultJingliMin = -1
     const DefaultNeiliMin = -1
     const DefaultTihuiMax = -1
@@ -115,6 +116,7 @@
     App.Core.Player.InitSettings = function () {
         App.Core.Player.Settings = {
             heal_below: DefaultHealBelow,
+            inspire_below: DefaultInspireBelow,
             jingli_min: DefaultJingliMin,
             neili_min: DefaultNeiliMin,
             pot_max: DefaultPotMax,
@@ -130,6 +132,9 @@
             switch (action.Command) {
                 case 'heal_below':
                     App.Core.Player.Settings['heal_below'] = ToNumber(action.Data, DefaultHealBelow)
+                    break
+                case 'inspire_below':
+                    App.Core.Player.Settings['inspire_below'] = ToNumber(action.Data, DefaultInspireBelow)
                     break
                 case 'jingli_min':
                     App.Core.Player.Settings['jingli_min'] = ToNumber(action.Data, DefaultJingliMin)
@@ -147,20 +152,20 @@
         }
     }
     App.Core.Player.Load()
-    App.Core.Player.GetDazuo=function(){
-        if (App.Core.Player.Settings['dazuo']!=-1){
+    App.Core.Player.GetDazuo = function () {
+        if (App.Core.Player.Settings['dazuo'] != -1) {
             return App.Core.Player.Settings['dazuo']
         }
-        if (App.Data.HP.max_neili<400){
+        if (App.Data.HP.max_neili < 400) {
             return 0
         }
-        let diff=Math.floor(App.Data.HP.qi*0.8)
-        let diff2=(App.Data.HP.max_neili-App.Data.HP.neili)
-        if (diff>diff2){
-            diff=diff2
+        let diff = Math.floor(App.Data.HP.qi * 0.8)
+        let diff2 = (App.Data.HP.max_neili - App.Data.HP.neili)
+        if (diff > diff2) {
+            diff = diff2
         }
-        if (diff<10){
-            diff=10
+        if (diff < 10) {
+            diff = 10
         }
         return diff
     }
