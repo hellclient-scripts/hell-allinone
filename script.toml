@@ -736,11 +736,61 @@ Channel = ""
   Intro = "用户登陆密码"
 
 [[RequiredParams]]
-  Name = "inv"
-  Desc = "道具设置"
+  Name = "quests"
+  Desc = "任务列表设置"
   Intro = ""
+
+[[RequiredParams]]
+  Name = "quests2"
+  Desc = "任务列表2设置"
+  Intro = ""
+
+[[RequiredParams]]
+  Name = "quests3"
+  Desc = "任务列表3设置"
+  Intro = ""
+
+[[RequiredParams]]
+  Name = "study"
+  Desc = "学习设置"
+  Intro = ""
+
+[[RequiredParams]]
+  Name = "combat"
+  Desc = "战斗设置"
+  Intro = "战斗设置"
+
+[[RequiredParams]]
+  Name = "wield"
+  Desc = "装备武器设置"
+  Intro = "装备武器设置"
 
 [[RequiredParams]]
   Name = "repair"
   Desc = "修理设置"
   Intro = ""
+
+[[RequiredParams]]
+  Name = "hp"
+  Desc = "属性相关配置"
+  Intro = "属性相关配置"
+
+[[RequiredParams]]
+  Name = "plan"
+  Desc = "计划事件"
+  Intro = "计划事件"
+
+[[RequiredParams]]
+  Name = "inv"
+  Desc = "道具设置"
+  Intro = ""
+
+[[RequiredParams]]
+  Name = "location"
+  Desc = "位置设置"
+  Intro = "location"
+
+[[RequiredParams]]
+  Name = "config"
+  Desc = "其他配置"
+  Intro = "其他配置"

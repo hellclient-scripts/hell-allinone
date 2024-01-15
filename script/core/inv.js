@@ -9,6 +9,7 @@
     const DefaultSilverMax = 200
     const DefaultSilverNormal = 10
     const DefaultCoinMax = 2000
+    const DefaultCurrency=10
     App.Core.Inv = {}
     App.Core.Inv.Items = {
         Weight: 0,
@@ -131,6 +132,7 @@
             'food_max': DefaultFoodMax,
             'water_min': DefaultWaterMin,
             'water_max': DefaultWaterMax,
+            'currency':DefaultCurrency,
             'items': [],
         }
         for (var i = 0; i < actions.length; i++) {
@@ -166,6 +168,8 @@
                 case '#water_min':
                     App.Core.Inv.Settings['water_min'] = ToNumber(action.Data, DefaultWaterMin)
                     break
+                case '#currency':
+                    App.Core.Inv.Settings['currency'] = ToNumber(action.Data, DefaultCurrency)
                 case '':
                     if (action.Data) {
                         var data = action.Data.split("::")
@@ -250,7 +254,7 @@
         if (App.Core.Inv.Items.Money < amount) {
             let cmds = []
             let diff = amount - App.Core.Inv.Items.Money
-            let cash = Math.floor(diff / 10)
+            let cash = diff>100?Math.floor((diff-100) / 10):0
             cmds.push(App.NewCommand("to", App.Core.Move.NewMove([App.Info.Rooms.Bank])))
             cmds.push(App.NewCommand("nobusy"))
             if (cash) {

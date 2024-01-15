@@ -94,6 +94,7 @@
     }
 
     Include("core/proposal/cash.js")
+    Include("core/proposal/currency.js")
     Include("core/proposal/cun.js")
     Include("core/proposal/food.js")
     Include("core/proposal/water.js")
